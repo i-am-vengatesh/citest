@@ -1,53 +1,36 @@
 #INDEX.HTML
+
 <!DOCTYPE html>
 <html>
 <head>
-    <title>User Details</title>
+    <title>User Form</title>
 </head>
 <body>
-    <h2>User Details Form</h2>
 
-    <form id="userForm">
-        Name: <input type="text" id="name" required><br><br>
-        Email: <input type="email" id="email" required><br><br>
-        Branch Name: <input type="text" id="branch" required><br><br>
+<h2>User Details</h2>
 
-        Key:
-        <select id="key">
-            <option>Key1</option>
-            <option>Key2</option>
-            <option>Key3</option>
-            <option>Key4</option>
-            <option>Key5</option>
-            <option>Key6</option>
-            <option>Key7</option>
-            <option>Key8</option>
-            <option>Key9</option>
-            <option>Key10</option>
-        </select><br><br>
+<form action="http://127.0.0.1:5000/submit" method="post">
+    Name: <input type="text" name="name" required><br><br>
+    Email: <input type="email" name="email" required><br><br>
+    Branch: <input type="text" name="branch" required><br><br>
 
-        <button type="submit">Submit</button>
-    </form>
+    Key:
+    <select name="key">
+        <option>Key1</option>
+        <option>Key2</option>
+        <option>Key3</option>
+        <option>Key4</option>
+        <option>Key5</option>
+        <option>Key6</option>
+        <option>Key7</option>
+        <option>Key8</option>
+        <option>Key9</option>
+        <option>Key10</option>
+    </select><br><br>
 
-    <script>
-        document.getElementById("userForm").addEventListener("submit", function(e) {
-            e.preventDefault();
+    <button type="submit">Submit</button>
+</form>
 
-            const data = {
-                name: document.getElementById("name").value,
-                email: document.getElementById("email").value,
-                branch: document.getElementById("branch").value,
-                key: document.getElementById("key").value
-            };
-
-            fetch("http://BACKEND_URL/submit", {
-                method: "POST",
-                headers: {"Content-Type": "application/json"},
-                body: JSON.stringify(data)
-            })
-            .then(res => alert("Submitted Successfully"))
-            .catch(err => alert("Error submitting form"));
-        });
-    </script>
 </body>
 </html>
+
